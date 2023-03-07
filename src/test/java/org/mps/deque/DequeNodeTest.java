@@ -17,6 +17,7 @@ class DequeNodeTest {
         node2 = new DequeNode<>(null, null, node3);
         node3 = new DequeNode<>(-7, node2, null);
         node4 = new DequeNode<>(1, node3, node2);
+        node2.setNext(node3);
     }
 
     @AfterEach
