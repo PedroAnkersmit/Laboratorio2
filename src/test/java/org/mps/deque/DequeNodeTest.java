@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @author Pedro Ankersmit Carrión
- * @author Daniel García Rodríguez
+ * @author Pedro Ankersmit Carriï¿½n
+ * @author Daniel Garcï¿½a Rodrï¿½guez
  */
 class DequeNodeTest {
     private DequeNode<Integer> node, node2, node3;
@@ -23,6 +23,7 @@ class DequeNodeTest {
 
     @Nested
     @DisplayName("The method getItem()")
+
     class getItem {
         @Test
         @DisplayName("returns null when item is null.")
@@ -40,6 +41,7 @@ class DequeNodeTest {
 
     @Nested
     @DisplayName("The method setItem()")
+
     class setItem {
         @Test
         @DisplayName("sets the item null when null is given.")
