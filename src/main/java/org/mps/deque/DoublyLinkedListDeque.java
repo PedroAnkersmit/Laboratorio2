@@ -29,12 +29,14 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public void deleteFirst() {
-        DequeNode<T> aux = first;
+        first = first.getNext();
+        size--;
     }
 
     @Override
     public void deleteLast() {
-        // TODO
+        last = last.getPrevious();
+        size--;
     }
 
     @Override
