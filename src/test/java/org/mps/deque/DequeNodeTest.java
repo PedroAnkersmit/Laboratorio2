@@ -16,7 +16,7 @@ class DequeNodeTest {
     }
 
     @Nested
-    @DisplayName("El método getItem()")
+    @DisplayName("El metodo getItem()")
     class getItem {
         @Test
         @DisplayName("returns null when item is null")
