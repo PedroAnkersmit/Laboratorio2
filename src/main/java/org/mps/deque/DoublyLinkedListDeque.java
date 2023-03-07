@@ -15,15 +15,15 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public void prepend(T value) {
-        DequeNode<T> nuevo = new DequeNode<>(value, null, first);
-        first = nuevo;
+        DequeNode<T> n = new DequeNode<>(value, null, first);
+        first = n;
         size++;
     }
 
     @Override
     public void append(T value) {
-        DequeNode<T> nuevo = new DequeNode<>(value, last, null);
-        last = nuevo;
+        DequeNode<T> n = new DequeNode<>(value, last, null);
+        last = n;
         size++;
     }
 
