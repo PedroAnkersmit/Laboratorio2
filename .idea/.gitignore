@@ -1,8 +1,18 @@
-# Default ignored files
-/shelf/
-/workspace.xml
-# Editor-based HTTP Client requests
-/httpRequests/
-# Datasource local storage ignored files
-/dataSources/
-/dataSources.local.xml
+
+.idea/misc.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/modules.xml
+.idea/vcs.xml
+Laboratorio2.iml
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml
+.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml
+.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_9_2.xml
+.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_2.xml
+.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_2.xml
+.idea/jarRepositories.xml
+.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_9_2.xml
+.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_9_2.xml
+.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_9_2.xml
+.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml
