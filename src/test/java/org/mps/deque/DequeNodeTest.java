@@ -124,10 +124,8 @@ class DequeNodeTest {
         @DisplayName("sets the next node null when null is given.")
         @Test
         void setNextNull() {
-            //node2.setNext(null);
-            //assertNull(node2.getNext());
-
-
+            node2.setNext(null);
+            assertNull(node2.getNext());
         }
 
         @DisplayName("sets the next node to the given non-null node.")

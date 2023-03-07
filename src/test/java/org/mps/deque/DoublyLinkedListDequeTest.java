@@ -15,9 +15,9 @@ class DoublyLinkedListDequeTest {
     private DoublyLinkedListDeque<Integer> queue;
     @BeforeEach
     void construct(){
-        DequeNode<Integer> f = new DequeNode<Integer>(11, null, null);
+        DequeNode<Integer> f = new DequeNode<>(11, null, null);
         DequeNode<Integer> l = new DequeNode<>(10, null, null);
-        queue = new DoublyLinkedListDeque<Integer>(f,l);
+        queue = new DoublyLinkedListDeque<>(f, l);
     }
     @Nested
     @DisplayName("The constructed doubly linked list deque")
@@ -84,7 +84,7 @@ class DoublyLinkedListDequeTest {
         @Test
         @DisplayName("Throws DoubleEndedQueueException if first is null")
         void firstNull(){
-            queue = new DoublyLinkedListDeque<Integer>();
+            queue = new DoublyLinkedListDeque<>();
             assertThrows(DoubleEndedQueueException.class,() -> queue.deleteFirst());
         }
     }
@@ -107,7 +107,7 @@ class DoublyLinkedListDequeTest {
         @Test
         @DisplayName("Throws DoubleEndedQueueException if last is null")
         void lastNull(){
-            queue = new DoublyLinkedListDeque<Integer>();
+            queue = new DoublyLinkedListDeque<>();
             assertThrows(DoubleEndedQueueException.class,() -> queue.deleteLast());
         }
     }
@@ -122,7 +122,7 @@ class DoublyLinkedListDequeTest {
         @Test
         @DisplayName("Throws DoubleEndedQueueException if first is null")
         void firstNull(){
-            queue = new DoublyLinkedListDeque<Integer>();
+            queue = new DoublyLinkedListDeque<>();
             assertThrows(DoubleEndedQueueException.class,() -> queue.first());
         }
     }
@@ -137,7 +137,7 @@ class DoublyLinkedListDequeTest {
         @Test
         @DisplayName("Throws DoubleEndedQueueException if last is null")
         void lastNull(){
-            queue = new DoublyLinkedListDeque<Integer>();
+            queue = new DoublyLinkedListDeque<>();
             assertThrows(DoubleEndedQueueException.class,() -> queue.last());
         }
     }
@@ -148,7 +148,7 @@ class DoublyLinkedListDequeTest {
         @DisplayName("Returns the expected value")
         void expectedSize(){
             assertEquals(queue.size(), 2);
-            queue = new DoublyLinkedListDeque<Integer>();
+            queue = new DoublyLinkedListDeque<>();
             assertEquals(queue.size(), 0);
         }
     }
