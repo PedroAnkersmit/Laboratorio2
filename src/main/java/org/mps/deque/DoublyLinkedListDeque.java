@@ -6,8 +6,11 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
     private DequeNode<T> last;
     private int size;
 
-    public DoublyLinkedListDeque() {
+    public DoublyLinkedListDeque(DequeNode<T> f, DequeNode<T> l) {
         // TODO
+        first = null;
+        last = null;
+        size = 0;
     }
 
     @Override
