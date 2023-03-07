@@ -9,7 +9,14 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
     public DoublyLinkedListDeque(DequeNode<T> f, DequeNode<T> l) {
         first = f;
         last = l;
+        first.setNext(l);
+        l.setPrevious(f);
         size = 2;
+    }
+    public DoublyLinkedListDeque(){
+        first = null;
+        last = null;
+        size = 0;
     }
 
     @Override
@@ -26,24 +33,40 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public void deleteFirst() {
-        first = first.getNext();
-        size--;
+        if(first != null) {
+            first = first.getNext();
+            size--;
+        } else{
+            throw new DoubleEndedQueueException("Delete on null pointer");
+        }
     }
 
     @Override
     public void deleteLast() {
+        if(last != null){
         last = last.getPrevious();
         size--;
+        } else{
+            throw new DoubleEndedQueueException("Delete on null pointer");
+        }
     }
 
     @Override
     public T first() {
-        return first.getItem();
+        if(first != null) {
+            return first.getItem();
+        } else{
+            throw new DoubleEndedQueueException("Get on null pointer");
+        }
     }
 
     @Override
     public T last() {
-        return last.getItem();
+        if(first != null) {
+            return last.getItem();
+        } else{
+            throw new DoubleEndedQueueException("Get on null pointer");
+        }
     }
 
     @Override
