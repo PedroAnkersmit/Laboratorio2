@@ -7,7 +7,6 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
     private int size;
 
     public DoublyLinkedListDeque(DequeNode<T> f, DequeNode<T> l) {
-        // TODO
         first = f;
         last = l;
         size = 2;
@@ -15,15 +14,13 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public void prepend(T value) {
-        DequeNode<T> n = new DequeNode<>(value, null, first);
-        first = n;
+        first = new DequeNode<>(value, null, first);
         size++;
     }
 
     @Override
     public void append(T value) {
-        DequeNode<T> n = new DequeNode<>(value, last, null);
-        last = n;
+        last = new DequeNode<>(value, last, null);
         size++;
     }
 
