@@ -7,6 +7,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * @author Pedro Ankersmit Carri�n
+ * @author Daniel Garc�a Rodr�guez
+ */
 class DequeNodeTest {
     private DequeNode<Integer> node;
 
@@ -16,7 +20,8 @@ class DequeNodeTest {
     }
 
     @Nested
-    @DisplayName("El metodo getItem()")
+    @DisplayName("The method getItem()")
+
     class getItem {
         @Test
         @DisplayName("returns null when item is null")
@@ -27,19 +32,35 @@ class DequeNodeTest {
 
         @Test
         @DisplayName("returns the non-null item when item is not null")
-        void getItemNotNull(){
+        void getItemNotNull() {
             assertNotNull(node.getItem());
-            assertEquals(10,node.getItem());
+            assertEquals(10, node.getItem());
         }
     }
 
-    @Test
-    void setItem() {
+    @Nested
+    @DisplayName("El m�todo setItem()")
+    class setItem {
+        @Test
+        @DisplayName("sets the item null when null is given")
+        void setItemNull() {
+            node.setItem(null);
+            assertNull(node.getItem());
+        }
 
+        @Test
+        @DisplayName("sets the item to the given non-null value")
+        void setItemNotNull() {
+            int expectedValue = 5;
+            node.setItem(expectedValue);
+            assertNotNull(node.getItem());
+            assertEquals(expectedValue, node.getItem());
+        }
     }
 
-    @Test
-    void getPrevious() {
+    @Nested
+    @DisplayName("El m�todo setItem()")
+    class getPrevious {
     }
 
     @Test
