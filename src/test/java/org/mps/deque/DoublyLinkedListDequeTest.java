@@ -12,12 +12,12 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 
 class DoublyLinkedListDequeTest {
-    private DoublyLinkedListDeque<Integer> qeue;
+    private DoublyLinkedListDeque<Integer> queue;
     @BeforeEach
     void construct(){
         DequeNode<Integer> f = new DequeNode<Integer>(11, null, null);
         DequeNode<Integer> l = new DequeNode<>(10, null, null);
-        qeue = new DoublyLinkedListDeque<Integer>(f,l);
+        queue = new DoublyLinkedListDeque<Integer>(f,l);
     }
     @Nested
     @DisplayName("The constructed doubly linked list deque")
@@ -25,13 +25,13 @@ class DoublyLinkedListDequeTest {
         @Test
         @DisplayName("Has the proper size")
         void size() {
-            assertEquals(qeue.size(), 2);
+            assertEquals(queue.size(), 2);
         }
         @Test
         @DisplayName("Is not null")
         void isNotNull(){
-            assertNotNull(qeue.first());
-            assertNotNull(qeue.last());
+            assertNotNull(queue.first());
+            assertNotNull(queue.last());
         }
     }
     @Nested
@@ -40,14 +40,14 @@ class DoublyLinkedListDequeTest {
         @Test
         @DisplayName("Makes the new node the first in the qeue")
         void newNodeIsFirst(){
-            qeue.prepend(2);
-            assertEquals(qeue.first(), 2);
+            queue.prepend(2);
+            assertEquals(queue.first(), 2);
         }
         @Test
         @DisplayName("Increments the size of the qeue")
         void qeueSize(){
-            qeue.prepend(2);
-            assertEquals(qeue.size(), 3);
+            queue.prepend(2);
+            assertEquals(queue.size(), 3);
         }
     }
     @Nested
@@ -56,14 +56,14 @@ class DoublyLinkedListDequeTest {
         @Test
         @DisplayName("Makes the new node the last in the qeue")
         void newNodeIsFirst(){
-            qeue.append(2);
-            assertEquals(qeue.last(), 2);
+            queue.append(2);
+            assertEquals(queue.last(), 2);
         }
         @Test
         @DisplayName("Increments the size of the qeue")
         void qeueSize(){
-            qeue.append(2);
-            assertEquals(qeue.size(), 3);
+            queue.append(2);
+            assertEquals(queue.size(), 3);
         }
     }
     @Nested
@@ -72,20 +72,20 @@ class DoublyLinkedListDequeTest {
         @Test
         @DisplayName("Deletes the first value")
         void deletedFirst(){
-            qeue.deleteFirst();
-            assertEquals(qeue.first(), qeue.last());
+            queue.deleteFirst();
+            assertEquals(queue.first(), queue.last());
         }
         @Test
         @DisplayName("Decrements the size of the qeue")
         void qeueSize(){
-            qeue.deleteFirst();
-            assertEquals(qeue.size(), 1);
+            queue.deleteFirst();
+            assertEquals(queue.size(), 1);
         }
         @Test
         @DisplayName("Throws DoubleEndedQueueException if first is null")
         void firstNull(){
-            qeue = new DoublyLinkedListDeque<Integer>();
-            assertThrows(DoubleEndedQueueException.class,() -> qeue.deleteFirst());
+            queue = new DoublyLinkedListDeque<Integer>();
+            assertThrows(DoubleEndedQueueException.class,() -> queue.deleteFirst());
         }
     }
 
@@ -95,20 +95,20 @@ class DoublyLinkedListDequeTest {
         @Test
         @DisplayName("Deletes the last value")
         void deletedFirst(){
-            qeue.deleteLast();
-            assertEquals(qeue.first(), qeue.last());
+            queue.deleteLast();
+            assertEquals(queue.first(), queue.last());
         }
         @Test
         @DisplayName("Decrements the size of the qeue")
         void qeueSize(){
-            qeue.deleteLast();
-            assertEquals(qeue.size(), 1);
+            queue.deleteLast();
+            assertEquals(queue.size(), 1);
         }
         @Test
         @DisplayName("Throws DoubleEndedQueueException if last is null")
         void lastNull(){
-            qeue = new DoublyLinkedListDeque<Integer>();
-            assertThrows(DoubleEndedQueueException.class,() -> qeue.deleteLast());
+            queue = new DoublyLinkedListDeque<Integer>();
+            assertThrows(DoubleEndedQueueException.class,() -> queue.deleteLast());
         }
     }
     @Nested
@@ -117,13 +117,13 @@ class DoublyLinkedListDequeTest {
         @Test
         @DisplayName("Returns the correct value")
         void returnValue(){
-            assertEquals(qeue.first(), 11);
+            assertEquals(queue.first(), 11);
         }
         @Test
         @DisplayName("Throws DoubleEndedQueueException if first is null")
         void firstNull(){
-            qeue = new DoublyLinkedListDeque<Integer>();
-            assertThrows(DoubleEndedQueueException.class,() -> qeue.first());
+            queue = new DoublyLinkedListDeque<Integer>();
+            assertThrows(DoubleEndedQueueException.class,() -> queue.first());
         }
     }
     @Nested
@@ -132,13 +132,13 @@ class DoublyLinkedListDequeTest {
         @Test
         @DisplayName("Returns the correct value")
         void returnValue(){
-            assertEquals(qeue.last(), 10);
+            assertEquals(queue.last(), 10);
         }
         @Test
         @DisplayName("Throws DoubleEndedQueueException if last is null")
         void lastNull(){
-            qeue = new DoublyLinkedListDeque<Integer>();
-            assertThrows(DoubleEndedQueueException.class,() -> qeue.last());
+            queue = new DoublyLinkedListDeque<Integer>();
+            assertThrows(DoubleEndedQueueException.class,() -> queue.last());
         }
     }
     @Nested
@@ -147,9 +147,9 @@ class DoublyLinkedListDequeTest {
         @Test
         @DisplayName("Returns the expected value")
         void expectedSize(){
-            assertEquals(qeue.size(), 2);
-            qeue = new DoublyLinkedListDeque<Integer>();
-            assertEquals(qeue.size(), 0);
+            assertEquals(queue.size(), 2);
+            queue = new DoublyLinkedListDeque<Integer>();
+            assertEquals(queue.size(), 0);
         }
     }
 }
