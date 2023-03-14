@@ -1,2 +1,4 @@
 Laboratorio2.iml
 /.idea/
+/target/
+*.class
