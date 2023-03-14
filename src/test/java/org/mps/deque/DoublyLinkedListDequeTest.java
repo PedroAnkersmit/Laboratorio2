@@ -223,7 +223,7 @@ class DoublyLinkedListDequeTest {
         @DisplayName("Returns expected result")
         void sortExpected() {
             Comparator<Integer> c = Comparator.comparingInt(o -> o);
-
+            // 14 24 11 10 23 12
             queue.append(23);
             queue.append(12);
             queue.prepend(24);
@@ -238,10 +238,8 @@ class DoublyLinkedListDequeTest {
             expected.append(14);
             expected.append(23);
             expected.append(24);
-
-
+            
             assertEquals(expected.size(),queue.size());
-            //assertEquals(expected, queue);
             for (int i = 0; i < expected.size(); i++) assertEquals(expected.get(i), queue.get(i));
         }
     }

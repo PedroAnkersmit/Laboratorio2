@@ -24,9 +24,8 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public void prepend(T value) {
-        first = new DequeNode<>(value, null, first);
         DequeNode<T> aux = new DequeNode<>(value, null, first);
-        if(first != null) first.setPrevious(aux);
+        if (first != null) first.setPrevious(aux);
         else last = aux;
         first = aux;
         size++;
@@ -35,7 +34,7 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
     @Override
     public void append(T value) {
         DequeNode<T> aux = new DequeNode<>(value, last, null);
-        if(last != null) last.setNext(aux);
+        if (last != null) last.setNext(aux);
         else first = aux;
         last = aux;
         size++;
@@ -45,6 +44,7 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
     public void deleteFirst() {
         if (first != null) {
             first = first.getNext();
+            if (first != null) first.setPrevious(null);
             size--;
         } else {
             throw new DoubleEndedQueueException("Delete on null pointer");
@@ -55,6 +55,7 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
     public void deleteLast() {
         if (last != null) {
             last = last.getPrevious();
+            if (last != null) last.setNext(null);
             size--;
         } else {
             throw new DoubleEndedQueueException("Delete on null pointer");
@@ -127,12 +128,14 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
             }
         }
         if (found) {
-            if(first != x) {
+            if (first != x) {
                 first.setPrevious(x);
-                first = x;
-
                 x.getPrevious().setNext(x.getNext());
-                if(last != x) x.getNext().setPrevious(x.getPrevious());
+
+                if (last != x) x.getNext().setPrevious(x.getPrevious());
+                x.setNext(first);
+                x.setPrevious(null);
+                first = x;
             }
             deleteFirst();
         }
