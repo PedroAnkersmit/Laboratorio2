@@ -174,6 +174,21 @@ class DoublyLinkedListDequeTest {
     }
 
     @Nested
+    @DisplayName("Given a DoubleEndedQueue and the method get")
+    class get{
+        @Test
+        @DisplayName("When used on a valid index, returns the expected value")
+        void returnsExpected(){
+            int i = queue.get(0);
+            assertEquals(i, 11);
+        }
+        @Test
+        @DisplayName("When used on an invalid index, throws a DoubleEndedQueueException")
+        void throwsException(){
+            assertThrows(DoubleEndedQueueException.class, () -> queue.get(3));
+        }
+    }
+    @Nested
     @DisplayName("Given a DoubleEndedQueue and the method contains")
     class contains{
         @Test
