@@ -73,4 +73,17 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
     public int size() {
         return size;
     }
+
+    @Override
+    public T get(int i){
+
+    }
+    @Override
+    public boolean contains(T value){
+
+    }
+    @Override
+    public void remove(T value){
+
+    }
 }

@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @author Pedro Ankersmit Carri�n
- * @author Daniel Garc�a Rodr�guez
+ * @author Pedro Ankersmit Carrion
+ * @author Daniel Garcia Rodriguez
  */
 
 class DoublyLinkedListDequeTest {
