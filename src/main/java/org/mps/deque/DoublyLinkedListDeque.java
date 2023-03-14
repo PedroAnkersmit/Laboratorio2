@@ -127,12 +127,12 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
             }
         }
         if (found) {
-            for (int c = i; c > 0; c--) {
-                for (int t = i; t >= 0; t--) {
-                    DequeNode<T> aux = first;
-                    first = first.getNext();
-                    first.setNext(aux);
-                }
+            if(first != x) {
+                first.setPrevious(x);
+                first = x;
+
+                x.getPrevious().setNext(x.getNext());
+                if(last != x) x.getNext().setPrevious(x.getPrevious());
             }
             deleteFirst();
         }
