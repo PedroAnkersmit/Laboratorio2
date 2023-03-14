@@ -173,9 +173,20 @@ class DoublyLinkedListDequeTest {
         }
     }
 
-    //@Nested
-    //@DisplayName("Given a DoubleEndedQueue and the method contains") TODO
-
+    @Nested
+    @DisplayName("Given a DoubleEndedQueue and the method contains")
+    class contains{
+        @Test
+        @DisplayName("When used with a value that's contained in the queue, returns True")
+        void returnsTrue(){
+            assertTrue(queue.contains(10));
+        }
+        @Test
+        @DisplayName("When used with a value that's not contained in the queue, returns False")
+        void returnsFalse(){
+            assertFalse(queue.contains(30));
+        }
+    }
     @Nested
     @DisplayName("Given a DoubleEndedQueue and the method remove")
     class remove{
@@ -186,17 +197,17 @@ class DoublyLinkedListDequeTest {
             DequeNode<Integer> f = new DequeNode<>(11, null, null);
             DequeNode<Integer> l = new DequeNode<>(10, null, null);
             DoublyLinkedListDeque<Integer> k = new DoublyLinkedListDeque<>(f, l);
-            //k.deleteLast();
+            k.deleteLast();
             k.append(23);
             k.append(12);
             k.prepend(24);
             queue.append(23);
             queue.append(12);
             queue.prepend(24);
-            //queue.remove(10);
+            queue.remove(10);
             for(int i = 0; i < queue.size(); i++){
 
-            //assertEquals(queue.get(i),k.get(i));
+            assertEquals(queue.get(i),k.get(i));
             }
         }
         @Test
@@ -214,10 +225,6 @@ class DoublyLinkedListDequeTest {
             DoublyLinkedListDeque<Integer> k = queue;
             queue.remove(30);
             assertEquals(queue, k);
-<<<<<<< HEAD
-            assertEquals(queue, k);
-=======
->>>>>>> e7b9e7b8c970860b6216464d97d73f4b38e59d7e
         }
     }
 
