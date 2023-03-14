@@ -152,4 +152,22 @@ class DoublyLinkedListDequeTest {
             assertEquals(queue.size(), 0);
         }
     }
+    @Nested
+    @DisplayName("The method remove")
+    class remove{
+        @Test
+        @DisplayName("Removes the intended value")
+        void removeExpected(){
+            DoublyLinkedListDeque<Integer> k = queue;
+            k.deleteLast();
+            k.append(23);
+            k.append(12);
+            k.prepend(24);
+            queue.append(23);
+            queue.append(12);
+            queue.prepend(24);
+            queue.remove(10);
+            assertEquals(queue,k);
+        }
+    }
 }
