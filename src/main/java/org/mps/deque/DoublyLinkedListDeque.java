@@ -15,7 +15,8 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
         l.setPrevious(f);
         size = 2;
     }
-    public DoublyLinkedListDeque(){
+
+    public DoublyLinkedListDeque() {
         first = null;
         last = null;
         size = 0;
@@ -35,38 +36,38 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public void deleteFirst() {
-        if(first != null) {
+        if (first != null) {
             first = first.getNext();
             size--;
-        } else{
+        } else {
             throw new DoubleEndedQueueException("Delete on null pointer");
         }
     }
 
     @Override
     public void deleteLast() {
-        if(last != null){
-        last = last.getPrevious();
-        size--;
-        } else{
+        if (last != null) {
+            last = last.getPrevious();
+            size--;
+        } else {
             throw new DoubleEndedQueueException("Delete on null pointer");
         }
     }
 
     @Override
     public T first() {
-        if(first != null) {
+        if (first != null) {
             return first.getItem();
-        } else{
+        } else {
             throw new DoubleEndedQueueException("Get on null pointer");
         }
     }
 
     @Override
     public T last() {
-        if(first != null) {
+        if (first != null) {
             return last.getItem();
-        } else{
+        } else {
             throw new DoubleEndedQueueException("Get on null pointer");
         }
     }
@@ -77,59 +78,80 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
     }
 
     @Override
-    public T get(int i){
+    public T get(int i) {
         DequeNode<T> x = first;
-        for(int t = 0; t < i; t++){
-            if(t< size){
-            x = x.getNext();}
-            else{
-                throw new RuntimeException("Get on invalid index");
+        for (int t = 0; t < i; t++) {
+            if (t < size) {
+                x = x.getNext();
+            } else {
+                throw new DoubleEndedQueueException("Get on invalid index");
             }
         }
         return x.getItem();
     }
+
     @Override
-    public boolean contains(T value){
+    public boolean contains(T value) {
         DequeNode<T> x = first;
         boolean found = false;
         int i = 0;
-        while(!found && i < size ){
-            if(x.getItem().equals(value)){
+        while (!found && i < size) {
+            if (x.getItem().equals(value)) {
                 found = true;
-            } else{
+            } else {
                 x = x.getNext();
                 i++;
             }
         }
         return found;
     }
+
     @Override
-    public void remove(T value){
+    public void remove(T value) {
         DequeNode<T> x = first;
         boolean found = false;
         int i = 0;
-        while(!found && i < size ){
-            if(x.getItem().equals(value)){
+        while (!found && i < size) {
+            if (x.getItem().equals(value)) {
                 found = true;
-            } else{
+            } else {
                 x = x.getNext();
                 i++;
             }
         }
-        if(found){
-            for(int c = i; c > 0; c--){
-            for(int t = i; t >= 0; t--){
-                DequeNode<T> aux = first;
-                first = first.getNext();
-                first.setNext(aux);
-            }
+        if (found) {
+            for (int c = i; c > 0; c--) {
+                for (int t = i; t >= 0; t--) {
+                    DequeNode<T> aux = first;
+                    first = first.getNext();
+                    first.setNext(aux);
+                }
             }
             deleteFirst();
         }
         size--;
     }
-    @Override
-    public void sort(Comparator<? super T> c){
 
+    @Override
+    public void sort(Comparator<? super T> comparator) {
+        for (int i = 0; i < this.size(); i++) {
+            T actual;
+            for (int j = 0; j < this.size() - i; j++) {
+                actual = this.get(j); //Comprobamos si este es el menor de los que quedan por ordenar
+                int k = 0;
+                for (; k < this.size() - i; k++) {
+                    if (k == j) continue;
+                    if (comparator.compare(actual, this.get(k)) > 0)
+                        break; //No es el menor
+                }
+
+                if (k == this.size() - i) { //Es el menor
+                    this.remove(actual);
+                    this.append(actual);
+                    break;
+                }
+            }
+
+        }
     }
 }
