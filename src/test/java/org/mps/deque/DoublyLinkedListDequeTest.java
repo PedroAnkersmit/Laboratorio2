@@ -42,17 +42,17 @@ class DoublyLinkedListDequeTest {
     }
 
     @Nested
-    @DisplayName("The method prepend")
+    @DisplayName("Given the method prepend")
     class prepend {
         @Test
-        @DisplayName("Makes the new node the first in the qeue")
+        @DisplayName("when called, then makes the new node the first in the qeue.")
         void newNodeIsFirst() {
             queue.prepend(2);
             assertEquals(queue.first(), 2);
         }
 
         @Test
-        @DisplayName("Increments the size of the qeue")
+        @DisplayName("when called, then increments the size of the qeue.")
         void qeueSize() {
             queue.prepend(2);
             assertEquals(queue.size(), 3);
@@ -60,17 +60,17 @@ class DoublyLinkedListDequeTest {
     }
 
     @Nested
-    @DisplayName("The method append")
+    @DisplayName("Given the method append")
     class append {
         @Test
-        @DisplayName("Makes the new node the last in the qeue")
+        @DisplayName("when called, then makes the new node the last in the qeue.")
         void newNodeIsFirst() {
             queue.append(2);
             assertEquals(queue.last(), 2);
         }
 
         @Test
-        @DisplayName("Increments the size of the qeue")
+        @DisplayName("when called, then increments the size of the qeue.")
         void qeueSize() {
             queue.append(2);
             assertEquals(queue.size(), 3);
@@ -78,24 +78,24 @@ class DoublyLinkedListDequeTest {
     }
 
     @Nested
-    @DisplayName("The method delete first")
+    @DisplayName("Given the method delete first")
     class deleteFirst {
         @Test
-        @DisplayName("Deletes the first value")
+        @DisplayName("when first is not null, then deletes the first value.")
         void deletedFirst() {
             queue.deleteFirst();
             assertEquals(queue.first(), queue.last());
         }
 
         @Test
-        @DisplayName("Decrements the size of the qeue")
+        @DisplayName("when first is not null, then decrements the size of the qeue.")
         void qeueSize() {
             queue.deleteFirst();
             assertEquals(queue.size(), 1);
         }
 
         @Test
-        @DisplayName("Throws DoubleEndedQueueException if first is null")
+        @DisplayName("when first is null, then throws DoubleEndedQueueException.")
         void firstNull() {
             queue = new DoublyLinkedListDeque<>();
             assertThrows(DoubleEndedQueueException.class, () -> queue.deleteFirst());
@@ -103,24 +103,24 @@ class DoublyLinkedListDequeTest {
     }
 
     @Nested
-    @DisplayName("The method delete last")
+    @DisplayName("Given the method delete last")
     class deleteLast {
         @Test
-        @DisplayName("Deletes the last value")
+        @DisplayName("when last is not null, then deletes the last value")
         void deletedFirst() {
             queue.deleteLast();
             assertEquals(queue.first(), queue.last());
         }
 
         @Test
-        @DisplayName("Decrements the size of the qeue")
+        @DisplayName("when last is not null, then decrements the size of the qeue.")
         void qeueSize() {
             queue.deleteLast();
             assertEquals(queue.size(), 1);
         }
 
         @Test
-        @DisplayName("Throws DoubleEndedQueueException if last is null")
+        @DisplayName("when last is null, then throws DoubleEndedQueueException.")
         void lastNull() {
             queue = new DoublyLinkedListDeque<>();
             assertThrows(DoubleEndedQueueException.class, () -> queue.deleteLast());
@@ -128,7 +128,7 @@ class DoublyLinkedListDequeTest {
     }
 
     @Nested
-    @DisplayName("The method first")
+    @DisplayName("Given the method first")
     class first {
         @Test
         @DisplayName("Returns the correct value")
@@ -244,7 +244,7 @@ class DoublyLinkedListDequeTest {
     }
 
     @Nested
-    @DisplayName("The method sort")
+    @DisplayName("Given the method sort")
     class sort {
         @Test
         @DisplayName("Returns expected result")
