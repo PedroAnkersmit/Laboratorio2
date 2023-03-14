@@ -24,13 +24,17 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public void prepend(T value) {
-        first = new DequeNode<>(value, null, first);
+        DequeNode<T> aux = new DequeNode<>(value, null, first);
+        first.setPrevious(aux);
+        first = aux;
         size++;
     }
 
     @Override
     public void append(T value) {
-        last = new DequeNode<>(value, last, null);
+        DequeNode<T> aux = new DequeNode<>(value, last, null);
+        last.setNext(aux);
+        last = aux;
         size++;
     }
 
