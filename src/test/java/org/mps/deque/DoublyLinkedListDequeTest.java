@@ -145,15 +145,8 @@ class DoublyLinkedListDequeTest {
     }
 
     @Nested
-<<<<<<< HEAD
     @DisplayName("Given a DoubleEndedQueue and the method last")
     class last{
-=======
-    @DisplayName("The method last")
-    class last {
->>>>>>> 2b9656b40273db03c58dd7f2f1035629bb7fef33
-        @Test
-        @DisplayName("Returns the correct value")
         void returnValue() {
             assertEquals(queue.last(), 10);
         }
@@ -167,13 +160,9 @@ class DoublyLinkedListDequeTest {
     }
 
     @Nested
-<<<<<<< HEAD
     @DisplayName("Given a DoubleEndedQueue and the method size")
     class size{
-=======
-    @DisplayName("The method size")
-    class size {
->>>>>>> 2b9656b40273db03c58dd7f2f1035629bb7fef33
+
         @Test
         @DisplayName("Returns the expected value")
         void expectedSize() {
@@ -182,7 +171,7 @@ class DoublyLinkedListDequeTest {
             assertEquals(queue.size(), 0);
         }
     }
-<<<<<<< HEAD
+
     //@Nested
     //@DisplayName("Given a DoubleEndedQueue and the method contains")
 
@@ -216,7 +205,6 @@ class DoublyLinkedListDequeTest {
             queue.append(12);
             queue.prepend(24);
             queue.remove(10);
-<<<<<<< HEAD
             assertEquals(queue.size(), 4);
         }
         @Test
@@ -225,7 +213,6 @@ class DoublyLinkedListDequeTest {
             DoublyLinkedListDeque<Integer> k = queue;
             queue.remove(30);
             assertEquals(queue, k);
-=======
             assertEquals(queue, k);
         }
     }
@@ -257,7 +244,6 @@ class DoublyLinkedListDequeTest {
             assertEquals(expected.size(),queue.size());
             //assertEquals(expected, queue);
             for (int i = 0; i < expected.size(); i++) assertEquals(expected.get(i), queue.get(i));
->>>>>>> 2b9656b40273db03c58dd7f2f1035629bb7fef33
         }
     }
 }
