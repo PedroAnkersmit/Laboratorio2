@@ -28,13 +28,13 @@ class DoublyLinkedListDequeTest {
     @DisplayName("The constructed doubly linked list deque")
     class constructor {
         @Test
-        @DisplayName("Has the proper size")
+        @DisplayName("has the proper size.")
         void size() {
             assertEquals(queue.size(), 2);
         }
 
         @Test
-        @DisplayName("Is not null")
+        @DisplayName("is not null.")
         void isNotNull() {
             assertNotNull(queue.first());
             assertNotNull(queue.last());

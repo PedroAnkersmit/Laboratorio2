@@ -88,16 +88,16 @@ class DequeNodeTest {
     }
 
     @Nested
-    @DisplayName("The method getItem()")
+    @DisplayName("Given the method getItem()")
     class getItem {
         @Test
-        @DisplayName("returns null when item is null.")
+        @DisplayName("when item is null, then returns null.")
         void getItemNull() {
             assertNull(node2.getItem());
         }
 
         @Test
-        @DisplayName("returns the non-null item when item is not null.")
+        @DisplayName("when item is not null, then returns the non-null item.")
         void getItemNotNull() {
             assertNotNull(node.getItem());
             assertEquals(10, node.getItem());
@@ -105,17 +105,17 @@ class DequeNodeTest {
     }
 
     @Nested
-    @DisplayName("The method setItem()")
+    @DisplayName("Given the method setItem()")
     class setItem {
         @Test
-        @DisplayName("sets the item null when null is given.")
+        @DisplayName("when null is given, then sets the item null .")
         void setItemNull() {
             node.setItem(null);
             assertNull(node.getItem());
         }
 
         @Test
-        @DisplayName("sets the item to the given non-null value.")
+        @DisplayName("when a non-null value is given, then sets the item to that value.")
         void setItemNotNull() {
             int expectedValue = 5;
             node.setItem(expectedValue);
@@ -125,16 +125,16 @@ class DequeNodeTest {
     }
 
     @Nested
-    @DisplayName("The method getPrevious()")
+    @DisplayName("Given the method getPrevious()")
     class getPrevious {
         @Test
-        @DisplayName("returns null when the previous node is null.")
+        @DisplayName("when the previous node is null, then returns null.")
         void getPreviousNull() {
             assertNull(node.getPrevious());
         }
 
         @Test
-        @DisplayName("returns the non-null previous node when it is not null.")
+        @DisplayName("when the previous node is not null, then returns it.")
         void getPreviousNotNull() {
             assertNotNull(node3.getPrevious());
             assertEquals(node2, node3.getPrevious());
@@ -142,17 +142,17 @@ class DequeNodeTest {
     }
 
     @Nested
-    @DisplayName("The method setPrevious()")
+    @DisplayName("Given the method setPrevious()")
     class setPrevious {
         @Test
-        @DisplayName("sets the previous node null when null is given.")
+        @DisplayName("when null is given, then sets the previous node to null.")
         void setPreviousNull() {
             node3.setPrevious(null);
             assertNull(node3.getPrevious());
         }
 
         @Test
-        @DisplayName("sets the previous node to the given non-null node.")
+        @DisplayName("when a non-null node is given, then sets the previous node to the given node.")
         void setPreviousNotNull() {
             node.setPrevious(node3);
             assertNotNull(node.getPrevious());
@@ -161,10 +161,10 @@ class DequeNodeTest {
     }
 
     @Nested
-    @DisplayName("The method getNext()")
+    @DisplayName("Given the method getNext()")
     class getNext {
         @Test
-        @DisplayName("returns null when the next node is null.")
+        @DisplayName("when the next node is null, then returns null.")
         void getNextNull() {
             assertNull(node.getNext());
         }
@@ -178,18 +178,16 @@ class DequeNodeTest {
     }
 
     @Nested
-    @DisplayName("The method setNext()")
+    @DisplayName("Given the method setNext()")
     class setNext {
-        @DisplayName("sets the next node null when null is given.")
+        @DisplayName("when null is given, then sets the next node null.")
         @Test
         void setNextNull() {
-            //node2.setNext(null);
-            //assertNull(node2.getNext());
-
-
+            node2.setNext(null);
+            assertNull(node2.getNext());
         }
 
-        @DisplayName("sets the next node to the given non-null node.")
+        @DisplayName("when a non-null node is given, then sets the next node to the given node.")
         @Test
         void setNextNotNull() {
             node.setNext(node3);
@@ -199,17 +197,17 @@ class DequeNodeTest {
     }
 
     @Nested
-    @DisplayName("The method isFirstNode()")
+    @DisplayName("Given the method isFirstNode()")
     class isFirstNode {
         @Test
-        @DisplayName("returns true if it has no previous node.")
+        @DisplayName("when it has no previous node, then returns true.")
         void previousNull() {
             assertNull(node.getPrevious());
             assertTrue(node.isFirstNode());
         }
 
         @Test
-        @DisplayName("returns false if it has a previous node.")
+        @DisplayName("when it has a previous node, then returns false.")
         void previousNotNull() {
             assertNotNull(node3.getPrevious());
             assertFalse(node3.isFirstNode());
@@ -217,17 +215,17 @@ class DequeNodeTest {
     }
 
     @Nested
-    @DisplayName("The method isLastNode()")
+    @DisplayName("Given the method isLastNode()")
     class isLastNode {
         @Test
-        @DisplayName("returns true if it has no next node.")
+        @DisplayName("when it has no next node, then returns true.")
         void nextNull() {
             assertNull(node.getNext());
             assertTrue(node.isLastNode());
         }
 
         @Test
-        @DisplayName("returns false if it has a next node.")
+        @DisplayName("when it has a next node, then returns false.")
         void nextNotNull() {
             DequeNode<Integer> tmp = node2;
             assertNotNull(tmp.getNext());
@@ -236,10 +234,10 @@ class DequeNodeTest {
     }
 
     @Nested
-    @DisplayName("The method isNotATerminalNode()")
+    @DisplayName("Given the method isNotATerminalNode()")
     class isNotATerminalNode {
         @Test
-        @DisplayName("returns true if it is not first nor last.")
+        @DisplayName("when it is not first nor last, then returns true.")
         void notFirstNorLast() {
             assertAll(
                     () -> assertFalse(node4.isFirstNode()),
@@ -249,7 +247,7 @@ class DequeNodeTest {
         }
 
         @Test
-        @DisplayName("returns false if it is first and not last.")
+        @DisplayName("when it is first and not last, then returns false.")
         void firstNotLast() {
             assertAll(
                     () -> assertTrue(node2.isFirstNode()),
@@ -259,7 +257,7 @@ class DequeNodeTest {
         }
 
         @Test
-        @DisplayName("returns false if it is last and not first.")
+        @DisplayName("when it is last and not first, then returns false.")
         void lastNotFirst() {
             assertAll(
                     () -> assertFalse(node3.isFirstNode()),
@@ -269,7 +267,7 @@ class DequeNodeTest {
         }
 
         @Test
-        @DisplayName("returns false if it is both first and last.")
+        @DisplayName("when it is both first and last, then returns false.")
         void firstAndLast() {
             assertAll(
                     () -> assertTrue(node.isFirstNode()),
