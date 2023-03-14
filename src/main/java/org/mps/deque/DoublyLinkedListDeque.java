@@ -23,6 +23,7 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public void prepend(T value) {
+
         first = new DequeNode<>(value, null, first);
         size++;
     }
@@ -126,7 +127,7 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
             }
             deleteFirst();
         }
-        size--;
+
     }
     @Override
     public void sort(Comparator<? super T> c){

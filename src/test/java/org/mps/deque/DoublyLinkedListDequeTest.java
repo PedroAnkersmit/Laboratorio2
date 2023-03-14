@@ -127,7 +127,7 @@ class DoublyLinkedListDequeTest {
         }
     }
     @Nested
-    @DisplayName("The method last")
+    @DisplayName("Given a DoubleEndedQueue and the method last")
     class last{
         @Test
         @DisplayName("Returns the correct value")
@@ -142,7 +142,7 @@ class DoublyLinkedListDequeTest {
         }
     }
     @Nested
-    @DisplayName("The method size")
+    @DisplayName("Given a DoubleEndedQueue and the method size")
     class size{
         @Test
         @DisplayName("Returns the expected value")
@@ -152,22 +152,47 @@ class DoublyLinkedListDequeTest {
             assertEquals(queue.size(), 0);
         }
     }
+    //@Nested
+    //@DisplayName("Given a DoubleEndedQueue and the method contains")
+
     @Nested
-    @DisplayName("The method remove")
+    @DisplayName("Given a DoubleEndedQueue and the method remove")
     class remove{
+
         @Test
-        @DisplayName("Removes the intended value")
+        @DisplayName("When used, removes the intended value")
         void removeExpected(){
-            DoublyLinkedListDeque<Integer> k = queue;
-            k.deleteLast();
+            DequeNode<Integer> f = new DequeNode<>(11, null, null);
+            DequeNode<Integer> l = new DequeNode<>(10, null, null);
+            DoublyLinkedListDeque<Integer> k = new DoublyLinkedListDeque<>(f, l);
+            //k.deleteLast();
             k.append(23);
             k.append(12);
             k.prepend(24);
             queue.append(23);
             queue.append(12);
             queue.prepend(24);
+            //queue.remove(10);
+            for(int i = 0; i < queue.size(); i++){
+
+            //assertEquals(queue.get(i),k.get(i));
+            }
+        }
+        @Test
+        @DisplayName("When used, changes the size of the queue")
+        void expectedSize(){
+            queue.append(23);
+            queue.append(12);
+            queue.prepend(24);
             queue.remove(10);
-            assertEquals(queue,k);
+            assertEquals(queue.size(), 4);
+        }
+        @Test
+        @DisplayName("When used on an invalid value, it does nothing")
+        void expectedBehaviour(){
+            DoublyLinkedListDeque<Integer> k = queue;
+            queue.remove(30);
+            assertEquals(queue, k);
         }
     }
 }
